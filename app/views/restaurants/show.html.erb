@@ -1,2 +1,22 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<!-- :name
+:address
+:phone_number
+:category -->
+<h1><%= @restaurant.name %></h1>
+<h2>Address</h2>
+<p><%= @restaurant.address %></p>
+<h2>Phone number</h2>
+<p><%= @restaurant.phone_number %></p>
+<h2>Cousine</h2>
+<p><%= @restaurant.category %></p>
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+<%= link_to 'Back', restaurants_path %>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      <%= review.rating %>
+      <%= review.content %> </li>
+  <% end %>
+</ul>
